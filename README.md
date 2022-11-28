@@ -12,7 +12,7 @@ S3_BUCKET_NAME=XXXX
 Build the docker image using
 
 ```sh
-docker build -t python-sample-api:0.1.0 .
+docker build -t python-enumrate-api:0.1.0 .
 ```
 ## Run the container 
 ```sh
