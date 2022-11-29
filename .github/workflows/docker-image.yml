@@ -1,10 +1,8 @@
 name: ci
-
 on:
   push:
     branches:
       - "main"
-
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -32,4 +30,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            user/app:latest
+            mazishah/python-enumrate-api:latest
