@@ -30,4 +30,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            mazishah/python-enumrate-api:0.1.2
+            mazishah/python-enumrate-api:0.1.3
