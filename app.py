@@ -1,4 +1,5 @@
 
+from xml.etree.ElementTree import tostring
 from flask import Flask, jsonify, abort
 from flask_httpauth import HTTPBasicAuth
 import boto3
@@ -54,7 +55,20 @@ def get_s3():
       list.append(my_bucket_object.key)
   return jsonify(list)
 
-
+@app.route('/count')
+@auth.login_required
+def get_s3_count():
+  list = []
+  session = boto3.Session(
+         aws_access_key_id=access_key,
+         aws_secret_access_key=secret_key)
+#Then use the session to get the resource
+  count = 0
+  s3 = session.resource('s3')
+  my_bucket = s3.Bucket(bucket_name)
+  for my_bucket_object in my_bucket.objects.all():
+      count = count + 1
+  return jsonify(count)
 
 
 if __name__ == "__main__":
